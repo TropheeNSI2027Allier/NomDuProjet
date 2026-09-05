@@ -35,20 +35,32 @@ jobs:
           if not message:
               message = "Commit sans message"
 
+          # Séparer le titre et la description du commit
+          lines = message.splitlines()
+
+          title = lines[0][:256]
+          description = "\n".join(lines[1:]).strip()
+
+          if not description:
+              description = "Aucune description"
+
+          # Créer le lien vers le commit
           commit_url = f"{server_url}/{repo}/commit/{sha}"
 
+          # Préparer le message Discord
           payload = {
-              "username": "GitHub NSI",
+              "username": "github bot",
               "content": f"💻 **Nouveau push sur `{branch}`**",
               "embeds": [
                   {
-                      "title": message[:256],
+                      "title": title,
+                      "url": commit_url,
                       "description": (
+                          f"{description}\n\n"
                           f"👤 **Auteur :** {author}\n"
                           f"📁 **Dépôt :** `{repo}`\n\n"
                           f"🔗 [Voir le commit sur GitHub]({commit_url})"
-                      ),
-                      "url": commit_url
+                      )
                   }
               ]
           }
