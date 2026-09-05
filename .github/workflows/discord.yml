@@ -33,12 +33,12 @@ jobs:
               message = "Commit sans message"
 
           payload = {
-              "username": "GitHub NSI",
+              "username": "Github Bot",
               "content": f"💻 **Nouveau push sur `{branch}`**",
               "embeds": [
                   {
                       "title": message[:256],
-                      "description": f"👤 **Auteur :** {author}\n📁 **Dépôt :** `{repo}`",
+                      "description": f"👤 **Auteur :** {author}\n📁 **Dépôt :** `{repo}`\n\n🔗 [Voir le commit sur GitHub]({commit_url})",,
                       "url": commit_url if commit_url else None
                   }
               ]
