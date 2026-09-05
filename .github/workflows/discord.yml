@@ -47,14 +47,16 @@ jobs:
           data = json.dumps(payload).encode("utf-8")
 
           request = urllib.request.Request(
-    os.environ["WEBHOOK"],
-    data=data,
-    headers={
-        "Content-Type": "application/json",
-        "User-Agent": "GitHubActions-DiscordWebhook/1.0"
-    },
-    method="POST"
-)
+              os.environ["WEBHOOK"],
+              data=data,
+              headers={
+                  "Content-Type": "application/json",
+                  "User-Agent": 
+          "GitHubActions-DiscordWebhook/1.0"
+              },
+              method="POST"
+          )
+
 
           try:
               with urllib.request.urlopen(request) as response:
