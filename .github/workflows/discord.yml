@@ -49,7 +49,7 @@ jobs:
 
           # Préparer le message Discord
           payload = {
-              "username": "github bot",
+              "username": "Github Bot",
               "content": f"💻 **Nouveau push sur `{branch}`**",
               "embeds": [
                   {
